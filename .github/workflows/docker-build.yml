@@ -26,19 +26,19 @@ jobs:
       # Step 4: Build Dockerfile.a
       - name: Build image A
         run: |
-          docker build -f Dockerfile.a -t ${{ secrets.DOCKER_USERNAME }}/mytestrepo:container-a .
+          docker build -f Dockerfile.a -t ${{ secrets.DOCKER_USERNAME }}/2025cloud:container-a .
 
       # Step 5: Build Dockerfile.b
       - name: Build image B
         run: |
-          docker build -f Dockerfile.b -t ${{ secrets.DOCKER_USERNAME }}/mytestrepo:container-b .
+          docker build -f Dockerfile.b -t ${{ secrets.DOCKER_USERNAME }}/2025cloud:container-b .
 
       # Step 6: Push image A
       - name: Push image A
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/mytestrepo:container-a
+          docker push ${{ secrets.DOCKER_USERNAME }}/2025cloud:container-a
 
       # Step 7: Push image B
       - name: Push image B
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/mytestrepo:container-b
+          docker push ${{ secrets.DOCKER_USERNAME }}/2025cloud:container-b
