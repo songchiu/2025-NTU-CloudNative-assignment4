@@ -20,3 +20,7 @@ docker push songchiu/2025cloud:container-b
 docker run --rm songchiu/2025cloud:container-a
 docker run --rm songchiu/2025cloud:container-b
 ```
+
+## Tag 命名邏輯
+`<DOCKER_USERNAME>/2025cloud:<tag>`
+![image](https://github.com/user-attachments/assets/6cd2af7c-8338-4edd-a9d3-d7105069e01b)
