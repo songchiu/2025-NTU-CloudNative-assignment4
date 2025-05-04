@@ -1,0 +1,44 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches: [ main ] 
+  pull_request:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: 設定 Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Step 3: Docker Login
+      - name: Log in to Docker Hub
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      # Step 4: Build Dockerfile.a
+      - name: Build image A
+        run: |
+          docker build -f Dockerfile.a -t ${{ secrets.DOCKER_USERNAME }}/mytestrepo:container-a .
+
+      # Step 5: Build Dockerfile.b
+      - name: Build image B
+        run: |
+          docker build -f Dockerfile.b -t ${{ secrets.DOCKER_USERNAME }}/mytestrepo:container-b .
+
+      # Step 6: Push image A
+      - name: Push image A
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/mytestrepo:container-a
+
+      # Step 7: Push image B
+      - name: Push image B
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/mytestrepo:container-b
