@@ -1,3 +1,6 @@
 # Dockerfile.a
+
+RUN exit 1
+
 FROM alpine
 CMD echo "Hello from container A"
