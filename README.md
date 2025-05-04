@@ -14,6 +14,8 @@ docker push songchiu/2025cloud:container-b
 ```
 
 ## run image
+使用下列指令來執行建好的 container image
+用 rm 是表示當 container 執行完後自動刪除
 ```
 docker run --rm songchiu/2025cloud:container-a
 docker run --rm songchiu/2025cloud:container-b
