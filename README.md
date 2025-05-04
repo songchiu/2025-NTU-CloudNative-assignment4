@@ -24,3 +24,4 @@ docker run --rm songchiu/2025cloud:container-b
 ## Tag 命名邏輯
 `<DOCKER_USERNAME>/2025cloud:<tag>`
 ![image](https://github.com/user-attachments/assets/6cd2af7c-8338-4edd-a9d3-d7105069e01b)
+透過 tag 管理多個 container，只需靠 tag 區分版本或用途，便於部署與後續維護
